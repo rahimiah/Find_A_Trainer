@@ -1,0 +1,26 @@
+<section data-ng-controller="TrainersController" data-ng-init="findOne()">
+		<div class="page-header">
+			<h1 data-ng-model="trainer.name"></h1>
+		</div>
+		<div class="pull-right" data-ng-show="authentication.user._id == trainer.user._id">
+			<a class="btn btn-primary" href="/#!/trainers/{{trainer._id}}/edit">
+				<i class="glyphicon glyphicon-edit"></i>
+			</a>
+			<a class="btn btn-primary" data-ng-click="remove();">
+				<i class="glyphicon glyphicon-trash"></i>
+			</a>
+		</div>
+		<div class="trainer-info">
+				<p data-ng-bind="trainer.description"></p>
+				<ul>
+						<li><strong>Listing Date:</strong> <span data-ng-bind="trainer.created | date:'mediumDate'"></span></li>
+						<li><strong>Trainer Poster:</strong> <span data-ng-bind="trainer.user.displayName"></span></li>
+						<li><strong>Name:</strong> <span data-ng-bind="trainer.name"></span></li>
+						<li><strong>Location:</strong> <span data-ng-bind="trainer.location"></span></li>
+						<li><strong>Hourly Wage:</strong> <span data-ng-bind="trainer.rate"></span></li>
+						<li><strong>Contact:</strong> <a href="mailto:{{trainer.contact}}"><span data-ng-bind="trainer.contact"></span></a></li>
+				<ul>
+		</div>
+	    <br><br>
+	    <a href="/#!/trainers">Go Back</a>
+</section>

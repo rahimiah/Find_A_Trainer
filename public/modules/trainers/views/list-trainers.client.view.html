@@ -1,0 +1,22 @@
+<section data-ng-controller="TrainersController" data-ng-init="find()">
+	<div class="page-header">
+		<h1>Trainers</h1>
+	</div>
+	<table class="table table-striped">
+		<tr>
+					<th>Name</th>
+					<th>Location</th>
+					<th>Rate</th>
+					<th>Date Listed</th>
+		</tr>
+		<tr data-ng-repeat="trainer in trainers">
+				<td><a href="#!/trainers/{{trainer._id}}">{{trainer.name}} - {{trainer.location}}</a></td>
+				<td>{{trainer.location}}</td>
+				<td>{{trainer.rate}}</td>
+				<td>{{trainer.created}}</td>
+		</tr>
+	</table>
+	<div class="alert alert-warning text-center" data-ng-if="articles.$resolved && !articles.length">
+		No articles yet, why don't you <a href="/#!/articles/create">create one</a>?
+	</div>
+</section>
